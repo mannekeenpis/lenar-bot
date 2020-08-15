@@ -39,7 +39,7 @@ def reply_virus(message):
     bot.send_sticker(message.chat.id, sticker_id)
 
 @bot.message_handler(regexp='гвидо')
-def reply_virus(message):
+def reply_guido(message):
     sticker_id = "CAACAgIAAxkBAAI4il58xyJdfRRqZRj0sQnmAAEcZ64_-gACHwADMPLlD7MzuT5hmEqJGAQ"
     bot.send_sticker(message.chat.id, sticker_id)
 
