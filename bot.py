@@ -38,6 +38,11 @@ def reply_virus(message):
     sticker_id = "CAACAgIAAxkBAAI3hV56HntGyLflxiv_AAGF1D6FOAABcbcAAi8AA-EwpinqvCmfV2_7GxgE"
     bot.send_sticker(message.chat.id, sticker_id)
 
+@bot.message_handler(regexp='гвидо')
+def reply_virus(message):
+    sticker_id = "CAACAgIAAxkBAAI4il58xyJdfRRqZRj0sQnmAAEcZ64_-gACHwADMPLlD7MzuT5hmEqJGAQ"
+    bot.send_sticker(message.chat.id, sticker_id)
+
 @bot.message_handler(commands=['start'])
 def say_hello(message):
 
