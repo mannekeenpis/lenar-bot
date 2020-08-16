@@ -92,7 +92,9 @@ def get_valute(message):
     data = requests.get("https://www.cbr-xml-daily.ru/daily_json.js").json()
     usd = data['Valute']['USD']['Value']
     eur = data['Valute']['EUR']['Value']
-    bot.send_message(message.chat.id, f"USD = {usd}, EUR = {eur}")
+    gbp = data['Valute']['GBP']['Value']
+
+    bot.send_message(message.chat.id, f"USD = {usd}, EUR = {eur}, GBP = {gbp}")
 
 @bot.message_handler(regexp='привет')
 def reply_to_hello(message):
