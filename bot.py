@@ -30,7 +30,7 @@ bot = telebot.TeleBot(token)
 def reply_space(message):
     url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
     data = requests.get(url).json()
-    bot.send_photo(message.chat_id, photo)
+    bot.send_photo(message.chat_id, data)
 
 @bot.message_handler(regexp='карантин')
 def reply_virus(message):
