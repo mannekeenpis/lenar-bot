@@ -28,7 +28,7 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(regexp='космос')
 def reply_space(message):
-    url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+    url = "https://random.dog/woof"
     return data = requests.get(url).json()
     
 
