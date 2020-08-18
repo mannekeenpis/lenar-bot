@@ -30,8 +30,8 @@ bot = telebot.TeleBot(token)
 def reply_space(message):
     url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
     data = requests.get(url).json()
-
-    print(data)
+    
+    return data
 
 
 @bot.message_handler(regexp='карантин')
