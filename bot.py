@@ -29,10 +29,10 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(regexp='космос')
 def reply_space(message):
     url = 'https://apod.nasa.gov/apod/image/2003/BhShredder_NASA_1080.jpg'
-     f = open('out.jpg','wb')
-     f.write(urllib.request.urlopen(url).read())
+    f = open('out.jpg','wb')
+    f.write(urllib.request.urlopen(url).read())
 
-     bot.send_photo(message.chat.id, open('out.jpg', 'rb'))   
+    bot.send_photo(message.chat.id, open('out.jpg', 'rb'))   
 
 
 @bot.message_handler(regexp='карантин')
