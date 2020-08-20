@@ -114,6 +114,8 @@ def city_choose(message):
     bot.send_message(message.chat.id, f"В городе {message.text} сейчас примерно {int(response['main']['temp'] - 273.15)} градусов")  
 
 
+
+
 @bot.message_handler(regexp='привет')
 def reply_to_hello(message):
     bot.send_message(message.chat.id, f"О, привет, {message.from_user.first_name}! А я тебя знаю!")
