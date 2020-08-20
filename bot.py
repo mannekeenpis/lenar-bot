@@ -99,19 +99,19 @@ def get_valute(message):
 
     bot.send_message(message.chat.id, f"USD = {usd}, EUR = {eur}, GBP = {gbp}")
 
-    
+
 @bot.message_handler(commands=['weather'])
- def send_start(message):
-     msg = bot.send_message(message.chat.id, "Введите, пожалуйста, город")    
+def send_start(message):
+    msg = bot.send_message(message.chat.id, "Введите, ваш город")    
 
-     bot.register_next_step_handler(msg, city_choose)
+    bot.register_next_step_handler(msg, city_choose)
 
- def city_choose(message):
-     url = f'http://api.openweathermap.org/data/2.5/weather?q={message.text},ru&APPID=3c476f22a5b257b9d84b96dbf18ad854'
+def city_choose(message):
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={message.text},ru&APPID=3c476f22a5b257b9d84b96dbf18ad854'
 
-     response = requests.get(url).json()
+    response = requests.get(url).json()
 
-     bot.send_message(message.chat.id, f"В городе {message.text} сейчас примерно {int(response['main']['temp'] - 273.15)} градусов")  
+    bot.send_message(message.chat.id, f"В городе {message.text} сейчас примерно {int(response['main']['temp'] - 273.15)} градусов")  
 
 
 @bot.message_handler(regexp='привет')
