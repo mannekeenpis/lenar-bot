@@ -81,7 +81,7 @@ def say_hello(message):
     btn3 = types.KeyboardButton('/randomText')
     btn4 = types.KeyboardButton('/weather')
 
-    markup.add(btn1, btn2, btn3)
+    markup.add(btn1, btn2, btn3, btn4)
 
     bot.send_message(message.chat.id, reply_text, reply_markup=markup)
 
