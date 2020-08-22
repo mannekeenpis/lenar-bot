@@ -1,1 +1,2 @@
-token = "1147601760:AAF6BYCUoxtvZ7kpKHC5afICffzwa8cCS9U"
+import os
+token = os.environ['BOT_API_TOKEN']
