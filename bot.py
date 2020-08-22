@@ -23,7 +23,7 @@ connect.commit()
 connect.close()
 
 
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(regexp='космос')
 def reply_space(message):
