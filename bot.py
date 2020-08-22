@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS visit(
 connect.commit()
 connect.close()
 
-token = "1147601760:AAF6BYCUoxtvZ7kpKHC5afICffzwa8cCS9U"
 
 bot = telebot.TeleBot(token)
 
@@ -87,7 +86,7 @@ def say_hello(message):
 
 @bot.message_handler(commands=['randomText'])
 def printRandomText(message):
-    bot.send_message(message.chat.id, "This text is random. Trust me.")
+    bot.send_message(message.chat.id, "This text is random. Trust me.") 
 
 
 @bot.message_handler(commands=['valute'])
@@ -112,8 +111,6 @@ def city_choose(message):
     response = requests.get(url).json()
 
     bot.send_message(message.chat.id, f"В городе {message.text} сейчас примерно {int(response['main']['temp'] - 273.15)} градусов")  
-
-
 
 
 @bot.message_handler(regexp='привет')
