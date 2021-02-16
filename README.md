@@ -5,7 +5,7 @@ In April 2020 he graduated from the course "Programming in Python" at it-park in
 you write "Guido" in response, the bot sends a sticker that says "Python drives". 
 
 <p align="center">
-  <img width="300" src="bot.png" alt="screenshot" />
+  <img width="500" src="bot.png" alt="screenshot" />
 </p>
 
 
