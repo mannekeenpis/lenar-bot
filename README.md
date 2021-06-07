@@ -1,4 +1,8 @@
-# Itpytonbot
+# Itpytonbot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?&url=https://github.com/lenargasimov/stickerbot&via=lenargasimov&hashtags=python,bot,telegram,developers)
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/lenargasimov" aria-label="Follow @lenargasimov on GitHub">Follow @lenargasimov</a>
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/lenargasimov/stickerbot/fork" data-icon="octicon-repo-forked" aria-label="Fork lenargasimov/stickerbot on GitHub">Fork</a>
 
 In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
 * wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies, and if
@@ -20,6 +24,11 @@ Check out the bot at [itpytonbot](https://t.me/itpytonbot).
 
 [![Twitter Badge](https://img.shields.io/badge/-@lenargasimov-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/lenargasimov)](https://twitter.com/lenargasimov) [![Linkedin Badge](https://img.shields.io/badge/-lenargasimov-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lenargasimov/)](https://www.linkedin.com/in/lenargasimov/)
 [![Gmail Badge](https://img.shields.io/badge/-lenargasimovdev@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:lenargasimovdev@gmail.com)](mailto:lenargasimovdev@gmail.com)
+
+
+## 💸 Donations
+
+Feel free to use the GitHub Sponsor button to donate towards my work if you're feeling generous ☕️
 
 <h4>
 
