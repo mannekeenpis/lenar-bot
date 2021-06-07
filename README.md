@@ -1,19 +1,19 @@
 # Itpytonbot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?&url=https://github.com/lenargasimov/stickerbot&via=lenargasimov&hashtags=python,bot,telegram,developers)
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/lenargasimov" aria-label="Follow @lenargasimov on GitHub">Follow @lenargasimov</a>
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/lenargasimov/stickerbot/fork" data-icon="octicon-repo-forked" aria-label="Fork lenargasimov/stickerbot on GitHub">Fork</a>
+
+![GitHub last commit](https://img.shields.io/github/last-commit/lenargasimov/stickerbot?style=plastic)
 
 In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
-* wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies, and if
-you write "Guido" in response, the bot sends a sticker that says "Python drives". 
+
+## Features
+
+🔮 `wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies, and if
+you write "Guido" in response, the bot sends a sticker that says "Python cool"`
 
 ![bot](bot.png)
 
 Check out the bot at [itpytonbot](https://t.me/itpytonbot).
 
-
-## ✔️ Author
+## 👨‍💻 Author
 
 <img style="border-radius: 50%" src="https://github.com/lenargasimov.png" width="100px;" alt=""/>
 <br>
