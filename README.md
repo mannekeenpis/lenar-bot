@@ -28,7 +28,7 @@ Check out the bot at [itpytonbot](https://t.me/itpytonbot).
 
 ## 💸 Donations
 
-Feel free to use the GitHub Sponsor button to donate towards my work if you're feeling generous ☕️
+Feel free to use the :octocat: GitHub Sponsor button to donate towards my work if you're feeling generous ☕️
 
 <h4>
 
