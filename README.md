@@ -1,7 +1,8 @@
 # Itpytonbot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?&url=https://github.com/lenargasimov/stickerbot&via=lenargasimov&hashtags=python,bot,telegram,developers)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lenargasimov/stickerbot?style=plastic)
-
+![](https://img.shields.io/github/forks/lenargasimov/stickerbot.svg)
+![](https://img.shields.io/github/stars/lenargasimov/stickerbot.svg)
 In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
 
 ## Features
