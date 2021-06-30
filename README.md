@@ -3,7 +3,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/lenargasimov/stickerbot?style=plastic)
 ![](https://img.shields.io/github/forks/lenargasimov/stickerbot.svg)
 ![](https://img.shields.io/github/stars/lenargasimov/stickerbot.svg)
+
 In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
+
+![](https://media.giphy.com/media/TRklv98Fvo0Tu/giphy.gif)
 
 ## Features
 
