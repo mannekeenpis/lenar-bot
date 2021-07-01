@@ -1,10 +1,13 @@
 import telebot
+import schedule
 import requests
-from telebot import types
 import sqlite3
 import datetime
 import urllib
 import config
+from telebot import types
+from time import sleep
+
 
 connect = sqlite3.connect('database.db')
 
@@ -25,6 +28,7 @@ connect.close()
 
 bot = telebot.TeleBot(config.token)
 
+
 @bot.message_handler(regexp='космос')
 def reply_space(message):
     url = 'https://apod.nasa.gov/apod/image/2003/BhShredder_NASA_1080.jpg'
@@ -39,10 +43,12 @@ def reply_virus(message):
     sticker_id = "CAACAgIAAxkBAAI3hV56HntGyLflxiv_AAGF1D6FOAABcbcAAi8AA-EwpinqvCmfV2_7GxgE"
     bot.send_sticker(message.chat.id, sticker_id)
 
+
 @bot.message_handler(regexp='гвидо')
 def reply_guido(message):
     sticker_id = "CAACAgIAAxkBAAI4il58xyJdfRRqZRj0sQnmAAEcZ64_-gACHwADMPLlD7MzuT5hmEqJGAQ"
     bot.send_sticker(message.chat.id, sticker_id)
+
 
 @bot.message_handler(commands=['start'])
 def say_hello(message):
@@ -84,6 +90,7 @@ def say_hello(message):
 
     bot.send_message(message.chat.id, reply_text, reply_markup=markup)
 
+
 @bot.message_handler(commands=['randomText'])
 def printRandomText(message):
     bot.send_message(message.chat.id, "This text is random. Trust me.") 
@@ -105,6 +112,7 @@ def send_start(message):
 
     bot.register_next_step_handler(msg, city_choose)
 
+
 def city_choose(message):
     url = f'http://api.openweathermap.org/data/2.5/weather?q={message.text},ru&APPID=3c476f22a5b257b9d84b96dbf18ad854'
 
@@ -117,10 +125,51 @@ def city_choose(message):
 def reply_to_hello(message):
     bot.send_message(message.chat.id, f"О, привет, {message.from_user.first_name}! А я тебя знаю!")
 
+
 @bot.message_handler(content_types=['text'])
 def reply_to_text(message):
     text = message.text
     bot.send_message(message.chat.id, f"Вы написали {text}, я пока не умею обрабатывать такую команду")
+
+
+def schedule_checker():
+    while True:
+        schedule.run_pending()
+        sleep(1)
+
+
+# def function_to_run():
+#     return bot.send_message(some_id, "This is a message to send.")
+
+
+def going_to_rain():
+    OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
+    api_key = "8f14ac1ce7426fef035aa2a985c43017"
+
+    weather_params = {
+        "lat": 55.740280,
+        "lon": 52.398109,
+        "appid": api_key,
+        "exclude": "current, minutely, daily"
+    }
+
+    response = requests.get(OWM_Endpoint, params=weather_params)
+    response.raise_for_status()
+    weather_data = response.json()
+    weather_slice = weather_data["hourly"][:12]
+
+    will_rain = False
+
+    for hour_data in weather_slice:
+        condition_code = hour_data["weather"][0]["id"]
+        if int(condition_code) < 700:
+            will_rain = True
+
+    if will_rain:
+        bot.send_message(message.status.chat.id, "It's going to rain today. Remember to bring an ☔️")
+
+
+schedule.every().day.at("9:37").do(going_to_rain)
 
 
 bot.polling()
