@@ -3,10 +3,11 @@ import schedule
 import requests
 import sqlite3
 import datetime
+import time
 import urllib
 import config
 from telebot import types
-from time import sleep
+
 
 
 connect = sqlite3.connect('database.db')
@@ -132,44 +133,55 @@ def reply_to_text(message):
     bot.send_message(message.chat.id, f"Вы написали {text}, я пока не умею обрабатывать такую команду")
 
 
-def schedule_checker():
-    while True:
-        schedule.run_pending()
-        sleep(1)
+# def schedule_checker():
+#     while True:
+#         schedule.run_pending()
+#         sleep(1)
+#
+#
+# # def function_to_run():
+# #     return bot.send_message(some_id, "This is a message to send.")
+#
+#
+# def going_to_rain():
+#     OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
+#     api_key = "8f14ac1ce7426fef035aa2a985c43017"
+#
+#     weather_params = {
+#         "lat": 55.740280,
+#         "lon": 52.398109,
+#         "appid": api_key,
+#         "exclude": "current, minutely, daily"
+#     }
+#
+#     response = requests.get(OWM_Endpoint, params=weather_params)
+#     response.raise_for_status()
+#     weather_data = response.json()
+#     weather_slice = weather_data["hourly"][:12]
+#
+#     will_rain = False
+#
+#     for hour_data in weather_slice:
+#         condition_code = hour_data["weather"][0]["id"]
+#         if int(condition_code) < 700:
+#             will_rain = True
+#
+#     if will_rain:
+#         bot.send_message(message.status.chat.id, "It's going to rain today. Remember to bring an ☔️")
+#
+#
+# schedule.every().day.at("9:37").do(going_to_rain)
+
+def job():
+    print("I'm working...")
 
 
-# def function_to_run():
-#     return bot.send_message(some_id, "This is a message to send.")
+schedule.every().day.at("10:00").do(job)
 
 
-def going_to_rain():
-    OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-    api_key = "8f14ac1ce7426fef035aa2a985c43017"
-
-    weather_params = {
-        "lat": 55.740280,
-        "lon": 52.398109,
-        "appid": api_key,
-        "exclude": "current, minutely, daily"
-    }
-
-    response = requests.get(OWM_Endpoint, params=weather_params)
-    response.raise_for_status()
-    weather_data = response.json()
-    weather_slice = weather_data["hourly"][:12]
-
-    will_rain = False
-
-    for hour_data in weather_slice:
-        condition_code = hour_data["weather"][0]["id"]
-        if int(condition_code) < 700:
-            will_rain = True
-
-    if will_rain:
-        bot.send_message(message.status.chat.id, "It's going to rain today. Remember to bring an ☔️")
-
-
-schedule.every().day.at("9:37").do(going_to_rain)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 
 bot.polling()
