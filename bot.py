@@ -171,7 +171,7 @@ def is_night():
 
 
 while True:
-    time.sleep(59)
+    time.sleep(60)
     if is_iss_overhead() and is_night():
         bot.send_message(914025175, "Look Up👆\n\nThe ISS 🛰 is above you in the sky.️")
 
