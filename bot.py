@@ -24,16 +24,9 @@ CREATE TABLE IF NOT EXISTS visit(
 connect.commit()
 connect.close()
 
+
 # Bot token
 bot = telebot.TeleBot(config.token)
-
-# Weather api
-OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-api_key = "8f14ac1ce7426fef035aa2a985c43017"
-
-# Coordinates for ISS
-MY_LAT = 55.764898
-MY_LONG = 52.455413
 
 
 @bot.message_handler(regexp='space')
@@ -59,6 +52,7 @@ def reply_guido(message):
 
 @bot.message_handler(commands=['start'])
 def say_hello(message):
+
     connect = sqlite3.connect('database.db')
     cursor = connect.cursor()
 
@@ -124,8 +118,7 @@ def city_choose(message):
 
     response = requests.get(url).json()
 
-    bot.send_message(message.chat.id,
-                     f"The city {message.text} is now approximately {int(response['main']['temp'] - 273.15)} degrees")
+    bot.send_message(message.chat.id, f"The city {message.text} is now approximately {int(response['main']['temp'] - 273.15)} degrees")
 
 
 @bot.message_handler(regexp='hello')
@@ -154,8 +147,8 @@ def is_iss_overhead():
 
 def is_night():
     parameters = {
-        "lat": MY_LAT,
-        "lng": MY_LONG,
+        "lat": 55.764898,
+        "lng": 52.455413,
         "formatted": 0,
     }
     response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
@@ -178,6 +171,10 @@ while True:
 
 # Remember to bring an umbrella
 def send_message():
+    # Weather api
+    OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
+    api_key = "8f14ac1ce7426fef035aa2a985c43017"
+
     weather_params = {
         "lat": 55.764898,
         "lon": 52.455413,
@@ -201,7 +198,7 @@ def send_message():
         bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔️")
 
 
-schedule.every().day.at("11:42").do(send_message)
+schedule.every().day.at("7:00").do(send_message)
 
 while True:
     schedule.run_pending()
