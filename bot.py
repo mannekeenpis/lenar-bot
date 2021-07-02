@@ -134,6 +134,10 @@ def reply_to_text(message):
 
 # ISS overhead
 def is_iss_overhead():
+    # Coordinates for ISS
+    MY_LAT = 55.764898
+    MY_LONG = 52.455413
+
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
     data = response.json()
@@ -171,6 +175,8 @@ while True:
 
 # Remember to bring an umbrella
 def send_message():
+    schedule.every().day.at("7:00").do(send_message)
+
     # Weather api
     OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
     api_key = "8f14ac1ce7426fef035aa2a985c43017"
@@ -197,8 +203,6 @@ def send_message():
     if will_rain:
         bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔️")
 
-
-schedule.every().day.at("7:00").do(send_message)
 
 while True:
     schedule.run_pending()
