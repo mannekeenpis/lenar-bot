@@ -70,6 +70,16 @@ class TimeSchedule():
             bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
 
 
+@bot.message_handler(regexp='donation')
+def reply_donat(message):
+    bot.send_message(message.chat.id, "Feel free to use the button to donate towards my work if you're feeling "
+                                      "generous ☕️", '<a href="https://www.buymeacoffee.com/lenargasimov" '
+                                                     'target="_blank"><img '
+                                                     'src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" '
+                                                     'alt="Buy Me A Coffee" style="height: 60px !important;width: '
+                                                     '217px !important;" ></a>', parse_mode="HTML")
+
+
 @bot.message_handler(regexp='space')
 def reply_space(message):
     url = 'https://apod.nasa.gov/apod/image/2004/EyeOnMW_Claro_1380.jpg'
@@ -164,7 +174,7 @@ def city_choose(message):
 
 @bot.message_handler(regexp='hello')
 def reply_to_hello(message):
-    bot.send_message(message.chat.id, f"O, hello, {message.from_user.first_name}! I know you!")
+    bot.send_message(message.chat.id, f"O, Hello, {message.from_user.first_name}! I know you!")
 
 
 @bot.message_handler(content_types=['text'])
