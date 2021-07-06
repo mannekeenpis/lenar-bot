@@ -1,12 +1,15 @@
-from telebot import types
-from datetime import datetime
-import sqlite3
-import time
-import urllib
-import config
 import telebot
 import requests
+import sqlite3
+import time
+import datetime
+import urllib
+import config
 import schedule
+
+from multiprocessing import *
+from telebot import types
+
 
 connect = sqlite3.connect('database.db')
 
@@ -25,20 +28,58 @@ connect.commit()
 connect.close()
 
 
-# Bot token
 bot = telebot.TeleBot(config.token)
+
+
+def start_process():
+    p1 = Process(target=TimeSchedule.start_schedule, args=()).start()
+
+
+class TimeSchedule():
+    def start_schedule():
+        schedule.every().day.at("13:33").do(TimeSchedule.rain_today)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
+    def rain_today():
+        OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
+        api_key = "8f14ac1ce7426fef035aa2a985c43017"
+
+        weather_params = {
+            "lat": 50.110924,
+            "lon": 8.682127,
+            "appid": api_key,
+            "exclude": "current, minutely, daily"
+        }
+
+        response = requests.get(OWM_Endpoint, params=weather_params)
+        response.raise_for_status()
+        weather_data = response.json()
+        weather_slice = weather_data["hourly"][:12]
+
+        will_rain = False
+
+        for hour_data in weather_slice:
+            condition_code = hour_data["weather"][0]["id"]
+            if int(condition_code) < 700:
+                will_rain = True
+
+        if will_rain:
+            bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
 
 
 @bot.message_handler(regexp='space')
 def reply_space(message):
-    url = 'https://apod.nasa.gov/apod/fap/image/2003/AndromedaStation.jpg'
-    f = open('out.jpg', 'wb')
+    url = 'https://apod.nasa.gov/apod/image/2004/EyeOnMW_Claro_1380.jpg'
+    f = open('out.jpg','wb')
     f.write(urllib.request.urlopen(url).read())
 
     bot.send_photo(message.chat.id, open('out.jpg', 'rb'))
 
 
-@bot.message_handler(regexp='virus')
+@bot.message_handler(regexp='covid')
 def reply_virus(message):
     sticker_id = "CAACAgIAAxkBAAI3hV56HntGyLflxiv_AAGF1D6FOAABcbcAAi8AA-EwpinqvCmfV2_7GxgE"
     bot.send_sticker(message.chat.id, sticker_id)
@@ -114,7 +155,7 @@ def send_start(message):
 
 
 def city_choose(message):
-    url = f'http://api.openweathermap.org/data/2.5/weather?q={message.text},ru&APPID=3c476f22a5b257b9d84b96dbf18ad854'
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={message.text}, &APPID=3c476f22a5b257b9d84b96dbf18ad854'
 
     response = requests.get(url).json()
 
@@ -132,81 +173,10 @@ def reply_to_text(message):
     bot.send_message(message.chat.id, f"You wrote {text}, I am not yet able to process such a command")
 
 
-# ISS overhead
-def is_iss_overhead():
-    # Coordinates for ISS
-    MY_LAT = 55.764898
-    MY_LONG = 52.455413
+if __name__ == '__main__':
+    start_process()
+    try:
+        bot.polling(none_stop=True)
+    except:
+        pass
 
-    response = requests.get(url="http://api.open-notify.org/iss-now.json")
-    response.raise_for_status()
-    data = response.json()
-
-    iss_latitude = float(data["iss_position"]["latitude"])
-    iss_longitude = float(data["iss_position"]["longitude"])
-
-    if MY_LAT-5 <= iss_latitude <= MY_LAT+5 and MY_LONG-5 <= iss_longitude <= MY_LONG+5:
-        return True
-
-
-def is_night():
-    parameters = {
-        "lat": 55.764898,
-        "lng": 52.455413,
-        "formatted": 0,
-    }
-    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
-    response.raise_for_status()
-    data = response.json()
-    sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
-    sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
-
-    time_now = datetime.now().hour
-
-    if time_now >= sunset or time_now <= sunrise:
-        return True
-
-
-while True:
-    time.sleep(60)
-    if is_iss_overhead() and is_night():
-        bot.send_message(914025175, "Look Up👆\n\nThe ISS 🛰 is above you in the sky.️")
-
-
-# Remember to bring an umbrella
-def send_message():
-    schedule.every().day.at("7:00").do(send_message)
-
-    # Weather api
-    OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-    api_key = "8f14ac1ce7426fef035aa2a985c43017"
-
-    weather_params = {
-        "lat": 55.764898,
-        "lon": 52.455413,
-        "appid": api_key,
-        "exclude": "current, minutely, daily"
-    }
-
-    response = requests.get(OWM_Endpoint, params=weather_params)
-    response.raise_for_status()
-    weather_data = response.json()
-    weather_slice = weather_data["hourly"][:12]
-
-    will_rain = False
-
-    for hour_data in weather_slice:
-        condition_code = hour_data["weather"][0]["id"]
-        if int(condition_code) < 700:
-            will_rain = True
-
-    if will_rain:
-        bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔️")
-
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
-
-bot.polling()
