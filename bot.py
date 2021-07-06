@@ -37,7 +37,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("13:45").do(TimeSchedule.rain_today)
+        schedule.every().day.at("7:00").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -57,7 +57,7 @@ class TimeSchedule():
         response = requests.get(OWM_Endpoint, params=weather_params)
         response.raise_for_status()
         weather_data = response.json()
-        weather_slice = weather_data["hourly"][:1]
+        weather_slice = weather_data["hourly"][:12]
 
         will_rain = False
 
