@@ -31,13 +31,53 @@ connect.close()
 bot = telebot.TeleBot(config.token)
 
 
+# ISS overhead
+def is_iss_overhead():
+    # Coordinates for ISS
+    MY_LAT = 55.741040
+    MY_LONG = 52.400100
+    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+    response.raise_for_status()
+    data = response.json()
+
+    iss_latitude = float(data["iss_position"]["latitude"])
+    iss_longitude = float(data["iss_position"]["longitude"])
+
+    if MY_LAT-5 <= iss_latitude <= MY_LAT+5 and MY_LONG-5 <= iss_longitude <= MY_LONG+5:
+        return True
+
+
+def is_night():
+    parameters = {
+        "lat": MY_LAT,
+        "lng": MY_LONG,
+        "formatted": 0,
+    }
+    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
+    response.raise_for_status()
+    data = response.json()
+    sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
+    sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
+
+    time_now = datetime.now().hour
+
+    if time_now >= sunset or time_now <= sunrise:
+        return True
+
+    while True:
+        time.sleep(60)
+        if is_iss_overhead() and is_night():
+            bot.send_message(914025175, "Look Up👆\n\nThe ISS 🛰 is above you in the sky.️")
+
+
+# It's going to rain today
 def start_process():
     p1 = Process(target=TimeSchedule.start_schedule, args=()).start()
 
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("7:00").do(TimeSchedule.rain_today)
+        schedule.every().day.at("07:00").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -48,8 +88,8 @@ class TimeSchedule():
         api_key = "8f14ac1ce7426fef035aa2a985c43017"
 
         weather_params = {
-            "lat": 50.110924,
-            "lon": 8.682127,
+            "lat": 55.741040,
+            "lon": 52.400100,
             "appid": api_key,
             "exclude": "current, minutely, daily"
         }
@@ -70,16 +110,14 @@ class TimeSchedule():
             bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
 
 
+# Donation
 @bot.message_handler(regexp='donation')
 def reply_donat(message):
-    bot.send_message(message.chat.id, "Feel free to use the button to donate towards my work if you're feeling "
-                                      "generous ☕️", ' <a href="https://www.buymeacoffee.com/lenargasimov" '
-                                                     'target="_blank"><img '
-                                                     'src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" '
-                                                     'alt="Buy Me A Coffee" style="height: 60px !important;width: '
-                                                     '217px !important;" ></a> ', parse_mode="HTML")
+    bot.send_message(message.chat.id, "Feel free to use the https://www.buymeacoffee.com/lenargasimov link to donate, "
+                                      "if you're feeling generous ☕️")
 
 
+# Space
 @bot.message_handler(regexp='space')
 def reply_space(message):
     url = 'https://apod.nasa.gov/apod/image/2004/EyeOnMW_Claro_1380.jpg'
@@ -89,18 +127,21 @@ def reply_space(message):
     bot.send_photo(message.chat.id, open('out.jpg', 'rb'))
 
 
+# Covid
 @bot.message_handler(regexp='covid')
 def reply_virus(message):
-    sticker_id = "CAACAgIAAxkBAAI3hV56HntGyLflxiv_AAGF1D6FOAABcbcAAi8AA-EwpinqvCmfV2_7GxgE"
+    sticker_id = "CAACAgIAAxkBAAECi1tg5HxdlsNAcHvMndBik37TBeOsRQACwgEAAladvQqZeEiAQjhtkCAE"
     bot.send_sticker(message.chat.id, sticker_id)
 
 
+# Guido
 @bot.message_handler(regexp='guido')
 def reply_guido(message):
     sticker_id = "CAACAgIAAxkBAAI4il58xyJdfRRqZRj0sQnmAAEcZ64_-gACHwADMPLlD7MzuT5hmEqJGAQ"
     bot.send_sticker(message.chat.id, sticker_id)
 
 
+# Start
 @bot.message_handler(commands=['start'])
 def say_hello(message):
 
@@ -142,11 +183,13 @@ def say_hello(message):
     bot.send_message(message.chat.id, reply_text, reply_markup=markup)
 
 
+# Random text
 @bot.message_handler(commands=['randomText'])
 def printRandomText(message):
     bot.send_message(message.chat.id, "This text is random. Trust me.")
 
 
+# Valute
 @bot.message_handler(commands=['valute'])
 def get_valute(message):
     data = requests.get("https://www.cbr-xml-daily.ru/daily_json.js").json()
@@ -157,6 +200,7 @@ def get_valute(message):
     bot.send_message(message.chat.id, f"USD = {usd}, EUR = {eur}, GBP = {gbp}")
 
 
+# Weather
 @bot.message_handler(commands=['weather'])
 def send_start(message):
     msg = bot.send_message(message.chat.id, "Enter your city")
@@ -172,11 +216,13 @@ def city_choose(message):
     bot.send_message(message.chat.id, f"The city {message.text} is now approximately {int(response['main']['temp'] - 273.15)} degrees")
 
 
+# Hello
 @bot.message_handler(regexp='hello')
 def reply_to_hello(message):
     bot.send_message(message.chat.id, f"O, Hello, {message.from_user.first_name}! I know you!")
 
 
+# Text
 @bot.message_handler(content_types=['text'])
 def reply_to_text(message):
     text = message.text
