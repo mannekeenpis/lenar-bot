@@ -73,11 +73,11 @@ class TimeSchedule():
 @bot.message_handler(regexp='donation')
 def reply_donat(message):
     bot.send_message(message.chat.id, "Feel free to use the button to donate towards my work if you're feeling "
-                                      "generous ☕️", '<a href="https://www.buymeacoffee.com/lenargasimov" '
+                                      "generous ☕️", ' <a href="https://www.buymeacoffee.com/lenargasimov" '
                                                      'target="_blank"><img '
                                                      'src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" '
                                                      'alt="Buy Me A Coffee" style="height: 60px !important;width: '
-                                                     '217px !important;" ></a>', parse_mode="HTML")
+                                                     '217px !important;" ></a> ', parse_mode="HTML")
 
 
 @bot.message_handler(regexp='space')
