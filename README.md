@@ -1,3 +1,5 @@
+![](https://media.giphy.com/media/TRklv98Fvo0Tu/giphy.gif)
+
 # Itpytonbot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?&url=https://github.com/lenargasimov/stickerbot&via=lenargasimov&hashtags=python,bot,telegram,developers)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lenargasimov/stickerbot?style=plastic)
@@ -6,12 +8,10 @@
 
 In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
 
-![](https://media.giphy.com/media/TRklv98Fvo0Tu/giphy.gif)
-
 ## Features
 
-🔮 `wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies, and if
-you write "Guido" in response, the bot sends a sticker that says "Python cool"`
+🔮 wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies, and if
+you write "Guido" in response, the bot sends a sticker that says "Python cool"
 
 ![bot](bot.png)
 
