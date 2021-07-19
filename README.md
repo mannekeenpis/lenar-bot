@@ -6,8 +6,6 @@
 ![](https://img.shields.io/github/forks/lenargasimov/stickerbot.svg)
 ![](https://img.shields.io/github/stars/lenargasimov/stickerbot.svg)
 
-In April 2020 he graduated from the course "Programming in Python" at it-park in Naberezhnye Chelny.
-
 ## Features
 
 🔮 Wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies. If you 
