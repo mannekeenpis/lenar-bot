@@ -107,7 +107,7 @@ class TimeSchedule():
                 will_rain = True
 
         if will_rain:
-            bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
+            bot.send_message(914025175, 735673243, "It's going to rain today. Remember to bring an ☔")
 
 
 # Donation
