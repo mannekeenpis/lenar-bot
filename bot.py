@@ -77,7 +77,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("06:00").do(TimeSchedule.rain_today)
+        schedule.every().day.at("07:05").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -108,7 +108,7 @@ class TimeSchedule():
 
         if will_rain:
             bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
-            time.sleep(60)
+            time.sleep(1)
             bot.send_message(735673243, "It's going to rain today. Remember to bring an ☔")
 
 
