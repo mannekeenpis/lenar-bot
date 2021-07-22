@@ -77,7 +77,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("07:05").do(TimeSchedule.rain_today)
+        schedule.every().day.at("07:27").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -107,9 +107,10 @@ class TimeSchedule():
                 will_rain = True
 
         if will_rain:
-            bot.send_message(914025175, "It's going to rain today. Remember to bring an ☔")
-            time.sleep(1)
-            bot.send_message(735673243, "It's going to rain today. Remember to bring an ☔")
+            ids = open('ids.txt', 'r')
+            for id in ids:
+                bot.send_message(chat_id=id, text="Test text")
+            # bot.send_message(chat_id: 914025175, chat_id: 735673243, text: "It's going to rain today. Remember to bring an ☔")
 
 
 # Donation
