@@ -107,6 +107,7 @@ class TimeSchedule():
                 will_rain = True
 
         if will_rain:
+            # sent a message from bot to multiple users
             ids = open('ids.txt', 'r')
             for id in ids:
                 bot.send_message(chat_id=id, text="It's going to rain today. Remember to bring an ☔")
