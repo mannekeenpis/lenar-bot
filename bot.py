@@ -77,7 +77,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("07:27").do(TimeSchedule.rain_today)
+        schedule.every().day.at("07:40").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
