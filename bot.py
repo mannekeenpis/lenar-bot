@@ -151,7 +151,7 @@ def reply_guido(message):
 @bot.message_handler(commands=['start'])
 def say_hello(message):
 
-    connect = os.environ.get("DATABASE_URL")
+    connect = sqlite3.connect('database.db')
     cursor = connect.cursor()
 
     user_id = message.from_user.id
