@@ -1,3 +1,4 @@
+import os
 import requests
 import sqlite3
 import time
@@ -150,7 +151,7 @@ def reply_guido(message):
 @bot.message_handler(commands=['start'])
 def say_hello(message):
 
-    connect = sqlite3.connect('database.db')
+    connect = os.environ.get("DATABASE_URL")
     cursor = connect.cursor()
 
     user_id = message.from_user.id
