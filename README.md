@@ -20,6 +20,7 @@ write "Guido" in response, the bot will send a sticker that saying "Python rules
 
 Check out the bot at [lenar's bot](https://t.me/itpytonbot).
 
+![rain](rain.png)
 ![bot](bot.png)
 
 - Python 3
