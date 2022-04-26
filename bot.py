@@ -27,8 +27,8 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("3:00").do(TimeSchedule.rain_today)
-        schedule.every().day.at("4:25").do(TimeSchedule.send_congratulations)
+        schedule.every().day.at("03:30").do(TimeSchedule.rain_today)
+        schedule.every().day.at("04:25").do(TimeSchedule.send_congratulations)
 
         while True:
             schedule.run_pending()
