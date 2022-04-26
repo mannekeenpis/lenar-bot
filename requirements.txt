@@ -1,2 +1,16 @@
-PyTelegramBotAPI
+certifi
+charset-normalizer
+idna
+numpy
+pandas
+pyTelegramBotAPI
+python-dateutil
+pytz
+requests
+sgmllib3k
+six
+soupsieve
+urllib3
+feedparser
+Flask
 schedule

@@ -13,21 +13,6 @@
     <img src="https://img.shields.io/github/stars/lenargasimov/stickerbot.svg" alt="">
 </p>
 
-## Features
-
-🔮 Wrote a bot from which you can find out the weather in any city, the exchange rate of foreign currencies. If you 
-write "Guido" in response, the bot will send a sticker that saying "Python rules".
-
-Check out the bot at [lenar's bot](https://t.me/itpytonbot).
-
-![rain](rain.png)
-![bot](bot.png)
-
 - Python 3
 - Telebot
-- PostgreSQL
 - Schedule
-
----
-
-@lenargasimov 🤖 2021
