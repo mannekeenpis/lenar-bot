@@ -4,13 +4,13 @@ import telebot
 import pandas
 import feedparser
 import random
+import schedule
 
 from flask import Flask, request
 from datetime import datetime
 from time import mktime
 from multiprocessing import *
 from telebot import types
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 
 TOKEN = os.environ['BOT_API_TOKEN']
@@ -19,50 +19,61 @@ APP_URL = f'https://lenar-technopolis-bot.herokuapp.com/{TOKEN}'
 group_id = os.environ['GROUP_ID']
 bot_owner = os.environ['BOT_OWNER']
 server = Flask(__name__)
-sched = BlockingScheduler()
 
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=4)
-def send_congratulations():
-    data = pandas.read_csv("birthdays.csv")
-    today = datetime.now()
-    today_tuple = (today.month, today.day)
-    birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
-
-    if today_tuple in birthdays_dict:
-        birthday_person = birthdays_dict[today_tuple]
-        name = birthday_person["name"]
-        bot.send_message(group_id, f"С Днём Рождения {name}! 🎈🎈🎈")
-    else:
-        print('Сегодня нет именинников.')
+# It's going to rain today
+def start_process():
+    p1 = Process(target=TimeSchedule.start_schedule, args=()).start()
 
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=3)
-def rain_today():
-    OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-    api_key = "8f14ac1ce7426fef035aa2a985c43017"
+class TimeSchedule():
+    def start_schedule():
+        schedule.every().day.at("03:30").do(TimeSchedule.rain_today)
+        schedule.every().day.at("04:25").do(TimeSchedule.send_congratulations)
 
-    weather_params = {
-        "lat": 55.741040,
-        "lon": 52.400100,
-        "appid": api_key,
-        "exclude": "current, minutely, daily"
-    }
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
 
-    response = requests.get(OWM_Endpoint, params=weather_params)
-    response.raise_for_status()
-    weather_data = response.json()
-    weather_slice = weather_data["hourly"][:12]
+    def rain_today():
+        OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
+        api_key = "8f14ac1ce7426fef035aa2a985c43017"
 
-    will_rain = False
+        weather_params = {
+            "lat": 55.741040,
+            "lon": 52.400100,
+            "appid": api_key,
+            "exclude": "current, minutely, daily"
+        }
 
-    for hour_data in weather_slice:
-        condition_code = hour_data["weather"][0]["id"]
-        if int(condition_code) < 700:
-            will_rain = True
+        response = requests.get(OWM_Endpoint, params=weather_params)
+        response.raise_for_status()
+        weather_data = response.json()
+        weather_slice = weather_data["hourly"][:12]
 
-    if will_rain:
-        bot.send_message(bot_owner, "Сегодня будет дождь. Возьми с собой ☔")
+        will_rain = False
+
+        for hour_data in weather_slice:
+            condition_code = hour_data["weather"][0]["id"]
+            if int(condition_code) < 700:
+                will_rain = True
+
+        if will_rain:
+            bot.send_message(bot_owner, text="Сегодня будет дождь. Возьми с собой ☔")
+
+
+    def send_congratulations():
+        data = pandas.read_csv("birthdays.csv")
+        today = datetime.now()
+        today_tuple = (today.month, today.day)
+        birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
+
+        if today_tuple in birthdays_dict:
+            birthday_person = birthdays_dict[today_tuple]
+            name = birthday_person["name"]
+            bot.send_message(group_id, f"С Днём Рождения {name}! 🎈🎈🎈")
+        else:
+            print('Сегодня нет именинников.')
 
 
 # Name
@@ -286,7 +297,6 @@ def webhook():
 
 
 if __name__ == '__main__':
-    sched.start()
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 

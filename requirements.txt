@@ -13,4 +13,4 @@ soupsieve
 urllib3
 feedparser
 Flask
-apscheduler
+schedule
