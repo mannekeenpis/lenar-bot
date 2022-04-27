@@ -4,7 +4,6 @@ import telebot
 import pandas
 import feedparser
 import random
-import schedule
 
 from flask import Flask, request
 from datetime import datetime
