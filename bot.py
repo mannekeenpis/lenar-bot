@@ -118,19 +118,20 @@ def reply_jagermeister(message):
 
 
 # Music
-@bot.message_handler(content_types=["audio"])
+@bot.message_handler(content_types='text')
 def reply_music(message):
-    random_music = [
-        'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
-        'CAACAgIAAxkBAAEEkApiZ-Yp3guu20ZaEIzAx-ahx9L2agACCQgAAtjY4QAB2MGWR-YJWX8kBA',
-        'CAACAgIAAxkBAAEEkBJiZ-ZzHOcykEtRtKLzWS_1ixmARwAC8gYAAipVGAJs9kVePXd9QiQE'
-        'CAACAgIAAxkBAAEEkBhiZ-aVGIHc7UggCU2zXdZd9gRBjwAClgcAAipVGAKLbGVlcW-KJCQE',
-        'CAACAgIAAxkBAAEEkB5iZ-az0RWtf1Dr1PUbboubpZPtUAACpgcAAipVGAI8YM5IdqLVmiQE',
-        'CAACAgIAAxkBAAEEkCBiZ-bALpNV82CUE2eReJ82th7ccQACpwcAAipVGALmPLdeC1cpoCQE',
-        'CAACAgIAAxkBAAEEkDRiZ-dDz-6f_pcoY0ZZSLMEueIsSgACSwADTMV6AAH4TRm1eEJn1SQE',
-        'CAACAgIAAxkBAAEElKJiam901FOEUe_X12ueMTXoDKf_vAACZgEAAvnkbAABoX7P-WT-negkBA',
-    ]
-    bot.send_sticker(message.chat.id, random.choice(random_music), reply_to_message_id=message.message_id)
+    if message.text == "soundcloud":
+        random_music = [
+            'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
+            'CAACAgIAAxkBAAEEkApiZ-Yp3guu20ZaEIzAx-ahx9L2agACCQgAAtjY4QAB2MGWR-YJWX8kBA',
+            'CAACAgIAAxkBAAEEkBJiZ-ZzHOcykEtRtKLzWS_1ixmARwAC8gYAAipVGAJs9kVePXd9QiQE'
+            'CAACAgIAAxkBAAEEkBhiZ-aVGIHc7UggCU2zXdZd9gRBjwAClgcAAipVGAKLbGVlcW-KJCQE',
+            'CAACAgIAAxkBAAEEkB5iZ-az0RWtf1Dr1PUbboubpZPtUAACpgcAAipVGAI8YM5IdqLVmiQE',
+            'CAACAgIAAxkBAAEEkCBiZ-bALpNV82CUE2eReJ82th7ccQACpwcAAipVGALmPLdeC1cpoCQE',
+            'CAACAgIAAxkBAAEEkDRiZ-dDz-6f_pcoY0ZZSLMEueIsSgACSwADTMV6AAH4TRm1eEJn1SQE',
+            'CAACAgIAAxkBAAEElKJiam901FOEUe_X12ueMTXoDKf_vAACZgEAAvnkbAABoX7P-WT-negkBA',
+        ]
+        bot.send_sticker(message.chat.id, random.choice(random_music), reply_to_message_id=message.message_id)
 
 
 # Work
@@ -276,8 +277,6 @@ def reply_when(message):
     random_when = [
         'CAACAgIAAxkBAAEEj-ZiZ-OldoHlNXJXWExBkZfgenaSHAACEAADNIWFDGaZ6_mOatb4JAQ',
         'CAACAgIAAxkBAAEEkDBiZ-cTmhgztwtUVit4WOiyVFCvaQAC-AcAAtjY4QABIxxiYVEVKLwkBA',
-        'CAACAgIAAxkBAAEEk-Niajmwr_J9DFXAnUefSkoEWNbU9AACHAAD5HgnCJVjfYv92lwKJAQ',
-        'CAACAgIAAxkBAAEElI5iam7sXQHqdY2oPxqEvc12WFH8egACMAEAAvnkbAABFiDaimE2_vckBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_when), reply_to_message_id=message.message_id)
 
