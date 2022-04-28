@@ -142,7 +142,7 @@ def reply_work(message):
 
 
 # Yes
-@bot.message_handler(regexp='конечно|Конечно|разумеется|Разумеется|так и есть|Так и есть')
+@bot.message_handler(regexp='конечно|Конечно|разумеется|Разумеется|так и есть|Так и есть|давай|Давай')
 def reply_yes(message):
     random_yes = [
         'CAACAgIAAxkBAAEEkFRiZ-gKQ_FxjPSn-7xR92uNUBpYsQACYwADNIWFDOVRjVkiEKL6JAQ',
