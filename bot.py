@@ -185,7 +185,6 @@ def reply_gypsies(message):
 def reply_where(message):
     random_where = [
         'CAACAgIAAxkBAAEElIxiam7kxIwDHHvHSdx8Ytqm7QaR0gACLQEAAvnkbAABdIcfl9yS1D0kBA',
-        'CAACAgIAAxkBAAEElIRiam4AAZkTl3VSz5bNDDcq5VatlUYAAuMDAAL55GwAAdJPlFzXDaRZJAQ',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_where), reply_to_message_id=message.message_id)
 
@@ -276,10 +275,7 @@ def reply_no(message):
 def reply_when(message):
     random_when = [
         'CAACAgIAAxkBAAEEj-ZiZ-OldoHlNXJXWExBkZfgenaSHAACEAADNIWFDGaZ6_mOatb4JAQ',
-        'CAACAgIAAxkBAAEEj_BiZ-SMCCNTFmYUvLpTr8d8IzxHuQACLgADNIWFDDKv5aCIOvtVJAQ',
         'CAACAgIAAxkBAAEEkDBiZ-cTmhgztwtUVit4WOiyVFCvaQAC-AcAAtjY4QABIxxiYVEVKLwkBA',
-        'CAACAgIAAxkBAAEEkD5iZ-ePWpUH8l8fQLbNfK3YUlFBtgACowADNIWFDGwRlClncbDDJAQ',
-        'CAACAgIAAxkBAAEEkHFiZ-iVkOcbJcB1ReKlfDOMSoZyJQACFQADNIWFDLj6FQS8ocT1JAQ',
         'CAACAgIAAxkBAAEEk-Niajmwr_J9DFXAnUefSkoEWNbU9AACHAAD5HgnCJVjfYv92lwKJAQ',
         'CAACAgIAAxkBAAEElI5iam7sXQHqdY2oPxqEvc12WFH8egACMAEAAvnkbAABFiDaimE2_vckBA',
     ]
