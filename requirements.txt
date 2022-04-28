@@ -14,4 +14,3 @@ urllib3
 feedparser
 Flask
 schedule
-regex

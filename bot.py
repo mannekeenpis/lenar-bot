@@ -118,7 +118,7 @@ def reply_jagermeister(message):
 
 
 # Music
-@bot.message_handler(regexp='https://soundcloud.com/')
+@bot.message_handler(regexp='https://soundcloud.com/|https://www.mixcloud.com/')
 def reply_music(message):
     random_music = [
         'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
