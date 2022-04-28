@@ -109,6 +109,10 @@ def reply_jagermeister(message):
         'CAACAgIAAxkBAAEEk8Viajk1Dw6sA45PDKzD4mTt8Nd8MQACBgAD5HgnCCY9zhXrehdnJAQ',
         'CAACAgIAAxkBAAEEk8liajlGET_w-MhnUzNJxU6H5SCLAgACCQAD5HgnCLmiHXnNttUGJAQ',
         'CAACAgIAAxkBAAEEk9Viajl3br6Vw89yk-1_7JbuvFuBjAACEwAD5HgnCMOTOibG3vCvJAQ',
+        'CAACAgIAAxkBAAEElIZiam4W1sOSBcB9M6LyCe3IDeVViwACcwMAAvnkbAABicHsqQgiHWskBA',
+        'CAACAgIAAxkBAAEElIhiam5QlaviZJLoF0urswqTyPAJmwACkgMAAvnkbAABKDGVARsLiUUkBA',
+        'CAACAgIAAxkBAAEElJxiam89bpqqtPjrWZuk9CG_mJ1AiQACgwEAAvnkbAABaeDcFvmy5BskBA',
+        'CAACAgIAAxkBAAEElKZiam-PAAEfG0qhd8ntvZndLQABezkMAAJqAQAC-eRsAAGINwNAUIS5eCQE',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_jagermeister), reply_to_message_id=message.message_id)
 
@@ -124,6 +128,7 @@ def reply_music(message):
         'CAACAgIAAxkBAAEEkB5iZ-az0RWtf1Dr1PUbboubpZPtUAACpgcAAipVGAI8YM5IdqLVmiQE',
         'CAACAgIAAxkBAAEEkCBiZ-bALpNV82CUE2eReJ82th7ccQACpwcAAipVGALmPLdeC1cpoCQE',
         'CAACAgIAAxkBAAEEkDRiZ-dDz-6f_pcoY0ZZSLMEueIsSgACSwADTMV6AAH4TRm1eEJn1SQE',
+        'CAACAgIAAxkBAAEElKJiam901FOEUe_X12ueMTXoDKf_vAACZgEAAvnkbAABoX7P-WT-negkBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_music), reply_to_message_id=message.message_id)
 
@@ -150,17 +155,86 @@ def reply_yes(message):
         'CAACAgIAAxkBAAEEk8diajk8Krbu5aFPBdwxSsTZW_TLggACBwAD5HgnCIEmQYo-_P9-JAQ',
         'CAACAgIAAxkBAAEEk_tiajoO4IokPFLB3UPHQgjV_LifRAACNAAD5HgnCPhcQpFrnQ33JAQ',
         'CAACAgIAAxkBAAEEk-Viajm4GCQU4fuOVgtegLLzI7hk7wACHQAD5HgnCCdgBLMLh8bbJAQ',
+        'CAACAgIAAxkBAAEElIpiam6ow4744EYWtxW7AUFfNcOoQQACDAEAAvnkbAABXarqC6W7iY4kBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_yes), reply_to_message_id=message.message_id)
 
 
 # How
 @bot.message_handler(regexp='сколько|Сколько|за сколько|За сколько|почём|Почём|цена|Цена')
-def reply_yes(message):
-    random_yes = [
+def reply_how(message):
+    random_how = [
         'CAACAgIAAxkBAAEEk8Niajkvh9lVL1Lj04uRM8dDbQut_wACBQAD5HgnCIK0XZnqowrBJAQ',
+        'CAACAgIAAxkBAAEElJBiam7wgG_HhG2a3BuiAmAJNEbSjwACMQEAAvnkbAABgLXj9HvptQ4kBA',
     ]
-    bot.send_sticker(message.chat.id, random.choice(random_yes), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(random_how), reply_to_message_id=message.message_id)
+
+
+# Цыгане
+@bot.message_handler(regexp='цыган|Цыган|цыгане|Цыгане|цыгану|Цыгану')
+def reply_gypsies(message):
+    random_gypsies = [
+        'CAACAgIAAxkBAAEElIJiam37yW5XiGCHxkp9RLfI_mArhwACpgMAAvnkbAABf6BYa_P6Cw0kBA',
+        'CAACAgIAAxkBAAEElIRiam4AAZkTl3VSz5bNDDcq5VatlUYAAuMDAAL55GwAAdJPlFzXDaRZJAQ',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_gypsies), reply_to_message_id=message.message_id)
+
+
+# Где
+@bot.message_handler(regexp='где|Где')
+def reply_where(message):
+    random_where = [
+        'CAACAgIAAxkBAAEElIxiam7kxIwDHHvHSdx8Ytqm7QaR0gACLQEAAvnkbAABdIcfl9yS1D0kBA',
+        'CAACAgIAAxkBAAEElIRiam4AAZkTl3VSz5bNDDcq5VatlUYAAuMDAAL55GwAAdJPlFzXDaRZJAQ',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_where), reply_to_message_id=message.message_id)
+
+
+# Мат
+@bot.message_handler(regexp='мат|Мат|матерись|Матерись|материшься|Материшься|матреится|Матерится|матерюсь|Матерюсь'
+                            '|матерился|Матерился')
+def reply_swearing(message):
+    random_swearing = [
+        'CAACAgIAAxkBAAEElJRiam8U47hz9GnlOyXTQbRMYWGVUgACPwEAAvnkbAABg86slV92oGokBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_swearing), reply_to_message_id=message.message_id)
+
+
+# Ебать мозг
+@bot.message_handler(regexp='мозг|Мозг|мозги|Мозги|мозгоеб|Мозгоеб|мозгоёб|Мозгоёб')
+def reply_brain(message):
+    random_brain = [
+        'CAACAgIAAxkBAAEElJZiam8hZ8GXPydcK91fwmO0CU-PaQACQwEAAvnkbAAByXmvNTlo7TskBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_brain), reply_to_message_id=message.message_id)
+
+
+# Know
+@bot.message_handler(regexp='знаю|Знаю|знай|Знай|знал|Знал|знает|Знает|знать|Знать')
+def reply_know(message):
+    random_know = [
+        'CAACAgIAAxkBAAEElJhiam8oLObBx2Vk799D_9qr4lN5QgACRAEAAvnkbAABY8YI7nUWLKwkBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_know), reply_to_message_id=message.message_id)
+
+
+# Cool
+@bot.message_handler(regexp='было|Было')
+def reply_cool(message):
+    random_cool = [
+        'CAACAgIAAxkBAAEElKxiam-ssls1Ig8K55dhHSqJp80n0AACfgEAAvnkbAABwChVPeOaNTgkBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_cool), reply_to_message_id=message.message_id)
+
+
+# Watch
+@bot.message_handler(regexp='смотрю|Смотрю|смотри|Смотри|смотрел|Смотрел|смотрели|Смотрели|смотрела|Смотрела|посмотрел|'
+                            'Посмотрел|посмотрели|Посмотрели')
+def reply_watch(message):
+    random_watch = [
+        'CAACAgIAAxkBAAEElKBiam9JklQ19RvO_hfIuCgqbecciQACTQEAAvnkbAABJa0X7MzmAqskBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_watch), reply_to_message_id=message.message_id)
 
 
 # Fail
@@ -170,10 +244,10 @@ def reply_fail(message):
     random_fail = [
         'CAACAgIAAxkBAAEEkExiZ-f2A4yWAkfNCXwcAAH23o5lOtMAAmkAAzSFhQxCh-za-DCcHyQE',
         'CAACAgIAAxkBAAEEkE5iZ-f9bCT0ks9viu1wJg1oeHYyMAACbQADNIWFDDbkiAZrREh_JAQ',
-        'CAACAgIAAxkBAAEEkFBiZ-f_m4lCmEumVSrBj1m9e-nlGAACbAADNIWFDDd-krVnr6OgJAQ',
         'CAACAgIAAxkBAAEEkFJiZ-gDlCXpyxkHuajfa1-0KlI2uQACZgADNIWFDHy3R6whcWViJAQ',
         'CAACAgIAAxkBAAEEkGZiZ-hQ3hy9jTguga5ZGOa-P1LcBAACQwADNIWFDKkJFPJdnMYjJAQ',
         'CAACAgIAAxkBAAEEkGpiZ-h77eGPt7BSQUdsEJDJONuDMAACLQADNIWFDGiid5vEFNojJAQ',
+        'CAACAgIAAxkBAAEElKRiam-BijvR64PLbV3VEPwIFb5LYAACaAEAAvnkbAAC55DqqoJOrCQE',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_fail), reply_to_message_id=message.message_id)
 
@@ -190,9 +264,9 @@ def reply_no(message):
         'CAACAgIAAxkBAAEEkEpiZ-f16B9vmRD0j0Si3VCNeXWN4QACbgADNIWFDHs7LxuxsQUKJAQ',
         'CAACAgIAAxkBAAEEkG9iZ-iB78NDnPUynJYOlBkyuiYTOQACLwADNIWFDB77Qd24HYDRJAQ',
         'CAACAgIAAxkBAAEEkI1iZ-lcS8oGFuVhDb9VCR-TfW8E2AACKQADa2iODohSkyEHad-9JAQ',
-        'CAACAgIAAxkBAAEEk91iajmVWHSk8rKCkXiXXNGNCvqJOQACFwAD5HgnCPuUXWNVadtyJAQ',
         'CAACAgIAAxkBAAEEk99iajmbasdRpugnTxgh7qawJ_gTogACGAAD5HgnCFl4jWsIs-n0JAQ',
         'CAACAgIAAxkBAAEElBFiajpPmCOg1WIL8sObZJ5DcvHRdAACPwAD5HgnCAgv8ObTQaVXJAQ',
+        'CAACAgIAAxkBAAEElKpiam-obsF3g5b0ApLFGXs2NQfwJgACfQEAAvnkbAABO9ZcmonHiJYkBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_no), reply_to_message_id=message.message_id)
 
@@ -207,6 +281,7 @@ def reply_when(message):
         'CAACAgIAAxkBAAEEkD5iZ-ePWpUH8l8fQLbNfK3YUlFBtgACowADNIWFDGwRlClncbDDJAQ',
         'CAACAgIAAxkBAAEEkHFiZ-iVkOcbJcB1ReKlfDOMSoZyJQACFQADNIWFDLj6FQS8ocT1JAQ',
         'CAACAgIAAxkBAAEEk-Niajmwr_J9DFXAnUefSkoEWNbU9AACHAAD5HgnCJVjfYv92lwKJAQ',
+        'CAACAgIAAxkBAAEElI5iam7sXQHqdY2oPxqEvc12WFH8egACMAEAAvnkbAABFiDaimE2_vckBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_when), reply_to_message_id=message.message_id)
 
@@ -230,6 +305,9 @@ def reply_hello(message):
         'CAACAgIAAxkBAAEEk9diajl_QNgRkuFCknsX25kYXrirewACFAAD5HgnCF43MRGpkoGoJAQ',
         'CAACAgIAAxkBAAEEk-9iajnogjZEvdzZqLyIBa3VXvLUkQACLQAD5HgnCI484VsjQzJmJAQ',
         'CAACAgIAAxkBAAEEk_1iajoUChQx2TvFNlg_yoVUHw7OkQACNgAD5HgnCNiv2IHlSkooJAQ',
+        'CAACAgIAAxkBAAEElJJiam8GiuMu58zvdJExrWfSeZW4iQACPgEAAvnkbAABCxxGn_KfrDgkBA',
+        'CAACAgIAAxkBAAEElJ5iam9D5h3rTow-vKcuSM6vDI_5uwACTAEAAvnkbAABNzS3k8LNs3UkBA',
+        'CAACAgIAAxkBAAEElKhiam-gdYwUwRLUySZezzR6wbKMogACfAEAAvnkbAAB2L9RHCpOjW8kBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_hello), reply_to_message_id=message.message_id)
 
