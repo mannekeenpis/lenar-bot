@@ -5,7 +5,6 @@ import pandas
 import feedparser
 import random
 import schedule
-import re
 
 from flask import Flask, request
 from datetime import datetime
@@ -119,24 +118,19 @@ def reply_jagermeister(message):
 
 
 # Music
-@bot.message_handler(content_types='text')
+@bot.message_handler(regexp='https://soundcloud.com/')
 def reply_music(message):
-    get_text = message.text
-    url_pattern = r'https://soundcloud.com/[\S]+'
-    urls = re.findall(url_pattern, get_text)
-
-    if get_text == urls:
-        random_music = [
-            'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
-            'CAACAgIAAxkBAAEEkApiZ-Yp3guu20ZaEIzAx-ahx9L2agACCQgAAtjY4QAB2MGWR-YJWX8kBA',
-            'CAACAgIAAxkBAAEEkBJiZ-ZzHOcykEtRtKLzWS_1ixmARwAC8gYAAipVGAJs9kVePXd9QiQE'
-            'CAACAgIAAxkBAAEEkBhiZ-aVGIHc7UggCU2zXdZd9gRBjwAClgcAAipVGAKLbGVlcW-KJCQE',
-            'CAACAgIAAxkBAAEEkB5iZ-az0RWtf1Dr1PUbboubpZPtUAACpgcAAipVGAI8YM5IdqLVmiQE',
-            'CAACAgIAAxkBAAEEkCBiZ-bALpNV82CUE2eReJ82th7ccQACpwcAAipVGALmPLdeC1cpoCQE',
-            'CAACAgIAAxkBAAEEkDRiZ-dDz-6f_pcoY0ZZSLMEueIsSgACSwADTMV6AAH4TRm1eEJn1SQE',
-            'CAACAgIAAxkBAAEElKJiam901FOEUe_X12ueMTXoDKf_vAACZgEAAvnkbAABoX7P-WT-negkBA',
-        ]
-        bot.send_sticker(message.chat.id, random.choice(random_music), reply_to_message_id=message.message_id)
+    random_music = [
+        'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
+        'CAACAgIAAxkBAAEEkApiZ-Yp3guu20ZaEIzAx-ahx9L2agACCQgAAtjY4QAB2MGWR-YJWX8kBA',
+        'CAACAgIAAxkBAAEEkBJiZ-ZzHOcykEtRtKLzWS_1ixmARwAC8gYAAipVGAJs9kVePXd9QiQE'
+        'CAACAgIAAxkBAAEEkBhiZ-aVGIHc7UggCU2zXdZd9gRBjwAClgcAAipVGAKLbGVlcW-KJCQE',
+        'CAACAgIAAxkBAAEEkB5iZ-az0RWtf1Dr1PUbboubpZPtUAACpgcAAipVGAI8YM5IdqLVmiQE',
+        'CAACAgIAAxkBAAEEkCBiZ-bALpNV82CUE2eReJ82th7ccQACpwcAAipVGALmPLdeC1cpoCQE',
+        'CAACAgIAAxkBAAEEkDRiZ-dDz-6f_pcoY0ZZSLMEueIsSgACSwADTMV6AAH4TRm1eEJn1SQE',
+        'CAACAgIAAxkBAAEElKJiam901FOEUe_X12ueMTXoDKf_vAACZgEAAvnkbAABoX7P-WT-negkBA',
+    ]
+    bot.send_sticker(message.chat.id, random.choice(random_music), reply_to_message_id=message.message_id)
 
 
 # Work
