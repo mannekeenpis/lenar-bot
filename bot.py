@@ -5,6 +5,7 @@ import pandas
 import feedparser
 import random
 import schedule
+import re
 
 from flask import Flask, request
 from datetime import datetime
@@ -120,7 +121,11 @@ def reply_jagermeister(message):
 # Music
 @bot.message_handler(content_types='text')
 def reply_music(message):
-    if message.text == "soundcloud":
+    get_text = message.text
+    url_pattern = r'https://soundcloud.com/[\S]+'
+    urls = re.findall(url_pattern, get_text)
+
+    if get_text == urls:
         random_music = [
             'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
             'CAACAgIAAxkBAAEEkApiZ-Yp3guu20ZaEIzAx-ahx9L2agACCQgAAtjY4QAB2MGWR-YJWX8kBA',
