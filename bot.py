@@ -306,7 +306,7 @@ def reply_denis(message):
 
 
 # Victor
-@bot.message_handler(regexp='денис|Денис|денису|Денису|дениса|Дениса|денисом|Денисом')
+@bot.message_handler(regexp='виктор|Виктор|вите|Вите|вити|Вити|витя|Витя|витей|Витей')
 def reply_victor(message):
     bot.send_message(message.chat.id, 'Витя наш друг!')
 
