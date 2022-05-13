@@ -118,7 +118,7 @@ def reply_jagermeister(message):
 
 
 # Music
-@bot.message_handler(regexp='https://soundcloud.com/|https://www.mixcloud.com/')
+@bot.message_handler(regexp='soundcloud|mixcloud|bandcamp|music.yandex')
 def reply_music(message):
     random_music = [
         'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
@@ -227,8 +227,7 @@ def reply_cool(message):
 
 
 # Watch
-@bot.message_handler(regexp='смотрю|Смотрю|смотри|Смотри|смотрел|Смотрел|смотрели|Смотрели|смотрела|Смотрела|посмотрел|'
-                            'Посмотрел|посмотрели|Посмотрели')
+@bot.message_handler(regexp='youtube|zen.yandex|instagram')
 def reply_watch(message):
     random_watch = [
         'CAACAgIAAxkBAAEElKBiam9JklQ19RvO_hfIuCgqbecciQACTQEAAvnkbAABJa0X7MzmAqskBA',
