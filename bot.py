@@ -388,6 +388,12 @@ def reply_dubs(message):
     bot.send_message(message.chat.id, 'Макс мой друг!')
 
 
+# Dubs
+@bot.message_handler(regexp='игорь|Игорь|игорю|Игорю|игоря|Игоря|large|Large|ларч|Ларч')
+def reply_dubs(message):
+    bot.send_message(message.chat.id, 'Макс мой друг!')
+
+
 @server.route('/' + TOKEN, methods=['POST'])
 def get_message():
     json_string = request.get_data().decode('utf-8')
