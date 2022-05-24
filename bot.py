@@ -118,7 +118,7 @@ def reply_jagermeister(message):
 
 
 # Music
-@bot.message_handler(regexp='soundcloud|mixcloud|bandcamp|music.yandex')
+@bot.message_handler(regexp='soundcloud|mixcloud|bandcamp|music.yandex|spotify')
 def reply_music(message):
     random_music = [
         'CAACAgIAAxkBAAEEkAZiZ-YjjKm7uM7RdopsPSAg5ssz4wACCwgAAtjY4QABFh1qAzD5_yIkBA',
@@ -227,7 +227,7 @@ def reply_cool(message):
 
 
 # Watch
-@bot.message_handler(regexp='youtube|zen.yandex|instagram')
+@bot.message_handler(regexp='youtu.be|zen.yandex|instagram')
 def reply_watch(message):
     random_watch = [
         'CAACAgIAAxkBAAEElKBiam9JklQ19RvO_hfIuCgqbecciQACTQEAAvnkbAABJa0X7MzmAqskBA',
@@ -388,10 +388,10 @@ def reply_dubs(message):
     bot.send_message(message.chat.id, 'Макс мой друг!')
 
 
-# Dubs
+# Igor
 @bot.message_handler(regexp='игорь|Игорь|игорю|Игорю|игоря|Игоря|large|Large|ларч|Ларч')
 def reply_dubs(message):
-    bot.send_message(message.chat.id, 'Макс мой друг!')
+    bot.send_message(message.chat.id, 'Игорь мой друг!')
 
 
 @server.route('/' + TOKEN, methods=['POST'])
