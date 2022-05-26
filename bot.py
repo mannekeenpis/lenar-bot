@@ -12,7 +12,6 @@ from time import mktime
 from multiprocessing import *
 from telebot import types
 
-
 TOKEN = os.environ['BOT_API_TOKEN']
 bot = telebot.TeleBot(TOKEN)
 APP_URL = f'https://lenar-technopolis-bot.herokuapp.com/{TOKEN}'
@@ -28,8 +27,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("03:30").do(TimeSchedule.rain_today)
-        schedule.every().day.at("04:25").do(TimeSchedule.send_congratulations)
+        schedule.every().day.at("03:00").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -59,7 +57,10 @@ class TimeSchedule():
                 will_rain = True
 
         if will_rain:
-            bot.send_message(bot_owner, text="Сегодня будет дождь. Возьми с собой ☔")
+            # sent a message from bot to multiple users
+            ids = open('ids.txt', 'r')
+            for id in ids:
+                bot.send_message(chat_id=id, text="It's going to rain today. Remember to bring an ☔")
 
 
     def send_congratulations():
@@ -412,5 +413,3 @@ def webhook():
 if __name__ == '__main__':
     start_process()
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-
-
