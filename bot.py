@@ -227,7 +227,7 @@ def reply_cool(message):
 
 
 # Watch
-@bot.message_handler(regexp='youtu.be|zen.yandex|instagram')
+@bot.message_handler(regexp='youtu.be|youtube|zen.yandex|instagram')
 def reply_watch(message):
     random_watch = [
         'CAACAgIAAxkBAAEElKBiam9JklQ19RvO_hfIuCgqbecciQACTQEAAvnkbAABJa0X7MzmAqskBA',
