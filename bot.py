@@ -79,7 +79,7 @@ class TimeSchedule():
 # Books
 @bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|прочитал|читать|прочитаю|прочитаешь')
 def reply_books(message):
-    book_message = 'Какую книгу прочитал?'
+    book_message = 'Какие книги посоветуешь прочитать?'
     bot.send_message(message.chat.id, book_message, reply_to_message_id=message.message_id)
 
 
