@@ -18,6 +18,12 @@ APP_URL = f'https://lenar-technopolis-bot.herokuapp.com/{TOKEN}'
 group_id = os.environ['GROUP_ID']
 server = Flask(__name__)
 
+# TODO
+# # CREATE DB
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRES_DATABASE_URL')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
+
 
 # It's going to rain today
 def start_process():
@@ -87,7 +93,7 @@ def reply_media(message):
         'CAACAgIAAxkBAAEE3Ytikzq5UWWyBKX2MntRwM_JoasQdAAC7wIAAuPwEwz4T_0I0SlcoCQE',
         'CAACAgIAAxkBAAEE3Y1ikzq--tE7GVNUHuJ2e9LJCaBhcwAC7gIAAuPwEwy9WhQtdjXq0iQE',
     ]
-    bot.send_message(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
 
 
 # Images
@@ -99,7 +105,7 @@ def reply_media(message):
         'CAACAgIAAxkBAAEE3kZik2zzhUB72SIqpFSvSstpTD1eOQAChBYAAicD6UtWHCmJUsvcXyQE',
         'CAACAgIAAxkBAAEE3khik2z1ZA-1sbe8n3uRujmv2vo2RQAC2RgAAiud6EuyXNu_8FbRLCQE',
     ]
-    bot.send_message(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
 
 
 # Money
