@@ -109,7 +109,6 @@ def reply_money(message):
         'CAACAgIAAxkBAAEE3b1ikz89DFS4NHTWfVl9xbOvujWWWAACygEAAvnkbAABUX95-rGy7bwkBA',
         'CAACAgIAAxkBAAEE3ZtikzxnPDcqy09BvcCwcdiZR599sQACnQEAAvnkbAABG-jcw1OqPrAkBA',
         'CAACAgIAAxkBAAEE3ZlikzxksdK2TSwKhfcx7R8t-fijewACnwEAAvnkbAABOocVUNm4nIYkBA',
-        ''
     ]
     bot.send_sticker(message.chat.id, random.choice(random_money), reply_to_message_id=message.message_id)
 
@@ -118,7 +117,6 @@ def reply_money(message):
 @bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|прочитал|читать|прочитаю|прочитаешь')
 def reply_books(message):
     book_message = [
-        'Какие книги посоветуешь прочитать?',
         'CAACAgIAAxkBAAEE3olik3UvKZglEXLEGI-UX0mBOCMYlQACnQgAAgk7OxNbbX7w-QABQ2okBA',
     ]
     bot.send_message(message.chat.id, random.choice(book_message), reply_to_message_id=message.message_id)
