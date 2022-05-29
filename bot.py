@@ -16,7 +16,6 @@ TOKEN = os.environ['BOT_API_TOKEN']
 bot = telebot.TeleBot(TOKEN)
 APP_URL = f'https://lenar-technopolis-bot.herokuapp.com/{TOKEN}'
 group_id = os.environ['GROUP_ID']
-bot_owner = os.environ['BOT_OWNER']
 server = Flask(__name__)
 
 
