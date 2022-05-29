@@ -7,6 +7,7 @@ import random
 import schedule
 
 from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from time import mktime
 from multiprocessing import *
@@ -119,7 +120,7 @@ def reply_books(message):
     book_message = [
         'CAACAgIAAxkBAAEE3olik3UvKZglEXLEGI-UX0mBOCMYlQACnQgAAgk7OxNbbX7w-QABQ2okBA',
     ]
-    bot.send_message(message.chat.id, random.choice(book_message), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(book_message), reply_to_message_id=message.message_id)
 
 
 # Name
@@ -128,7 +129,7 @@ def reply_name(message):
     random_lenar = [
         'CAACAgIAAxkBAAEE3lpik29rGqz8Uir-MuPE7y3epc2QZwAChQIAAvnkbAABmd-cqFz6D9skBA',
     ]
-    bot.send_message(message.chat.id, random.choice(random_lenar), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(random_lenar), reply_to_message_id=message.message_id)
 
 
 # Jagermaister
