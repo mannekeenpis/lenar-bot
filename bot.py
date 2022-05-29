@@ -117,8 +117,11 @@ def reply_money(message):
 # Books
 @bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|прочитал|читать|прочитаю|прочитаешь')
 def reply_books(message):
-    book_message = 'Какие книги посоветуешь прочитать?'
-    bot.send_message(message.chat.id, book_message, reply_to_message_id=message.message_id)
+    book_message = [
+        'Какие книги посоветуешь прочитать?',
+        'CAACAgIAAxkBAAEE3olik3UvKZglEXLEGI-UX0mBOCMYlQACnQgAAgk7OxNbbX7w-QABQ2okBA',
+    ]
+    bot.send_message(message.chat.id, random.choice(book_message), reply_to_message_id=message.message_id)
 
 
 # Name
@@ -203,6 +206,7 @@ def reply_work(message):
 @bot.message_handler(regexp='конечно|Конечно|разумеется|Разумеется|так и есть|Так и есть|давай|Давай|да')
 def reply_yes(message):
     random_yes = [
+        'CAACAgIAAxkBAAEE3odik3UpG0D2Ww_Vgtz2B3wQhSePswACmQgAAgk7OxNRVRJoMqOh8SQE',
         'CAACAgIAAxkBAAEE3k5ik20AAVneTU4ojKWa4LXzFA_VaksAAnACAAL55GwAAfaA4kSD3N8jJAQ',
         'CAACAgIAAxkBAAEE3d9ik0HjMvemlJM51y2B3Avx3tb8-AACdQIAAvnkbAAB8erfWz9rKMQkBA',
         'CAACAgIAAxkBAAEE3cNik0AlPbIHVzXF86krocOB8rKddAAC2gEAAvnkbAABmnQw-PbzfWIkBA',
@@ -274,6 +278,9 @@ def reply_brain(message):
 @bot.message_handler(regexp='знаю|Знаю|знай|Знай|знал|Знал|знает|Знает|знать|Знать')
 def reply_know(message):
     random_know = [
+        'CAACAgIAAxkBAAEE3pNik3aEK-wbF90FDpkeMHlx4cP8fQACmggAAgk7OxM6MEYpohw-JSQE',
+        'CAACAgIAAxkBAAEE3pFik3ZZXAld_7t6R9IC-XdfDI57IgACnggAAgk7OxNY9OSgkAXRqSQE',
+        'CAACAgIAAxkBAAEE3o9ik3Y288FaqQ-Jir3Dv62LRaSIsAACpQgAAgk7OxODgKumZXRqASQE',
         'CAACAgIAAxkBAAEE3lxik29uozdiDeasS1wXA0ZTO8otJQAChAIAAvnkbAABR-gwu4XLxqYkBA',
         'CAACAgIAAxkBAAEElJhiam8oLObBx2Vk799D_9qr4lN5QgACRAEAAvnkbAABY8YI7nUWLKwkBA',
     ]
@@ -295,6 +302,8 @@ def reply_cool(message):
 @bot.message_handler(regexp='youtu.be|youtube|zen.yandex|instagram')
 def reply_watch(message):
     random_watch = [
+        'CAACAgIAAxkBAAEE3otik3U6Bqpf8A8rzufQrxLABB8__gACqAgAAgk7OxOGkHZbEt8dQSQE',
+        'CAACAgIAAxkBAAEE3o1ik3VA4A4U9clIfy0ghV3yv8naRAACpwgAAgk7OxMbqdsXc_sEyiQE',
         'CAACAgIAAxkBAAEElKBiam9JklQ19RvO_hfIuCgqbecciQACTQEAAvnkbAABJa0X7MzmAqskBA',
         'CAACAgIAAxkBAAEE3adikz10QvZQGOwCQsxuMMDye2fOxAACrwEAAvnkbAABNO4CCT7bqPgkBA',
     ]
