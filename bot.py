@@ -7,7 +7,6 @@ import random
 import schedule
 
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from time import mktime
 from multiprocessing import *
@@ -115,7 +114,8 @@ def reply_money(message):
 
 
 # Books
-@bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|прочитал|читать|прочитаю|прочитаешь')
+@bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|'
+                            'прочитал|читать|прочитаю|прочитаешь')
 def reply_books(message):
     book_message = [
         'CAACAgIAAxkBAAEE3olik3UvKZglEXLEGI-UX0mBOCMYlQACnQgAAgk7OxNbbX7w-QABQ2okBA',
