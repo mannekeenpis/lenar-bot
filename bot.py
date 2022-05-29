@@ -76,6 +76,13 @@ class TimeSchedule():
             print('Сегодня нет именинников.')
 
 
+# Books
+@bot.message_handler(regexp='книга|книги|книге|книгу|книжка|книжке|книг|книгам|книгой|книгою|книгами|книгах|читал|читаю|прочитал|читать|прочитаю|прочитаешь')
+def reply_books(message):
+    book_message = 'Какую книгу прочитал?'
+    bot.send_message(message.chat.id, book_message, reply_to_message_id=message.message_id)
+
+
 # Name
 @bot.message_handler(regexp='Ленар|ленар|Ленару|ленару|Ленара|ленара')
 def reply_name(message):
