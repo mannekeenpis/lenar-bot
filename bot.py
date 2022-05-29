@@ -80,12 +80,12 @@ class TimeSchedule():
 @bot.message_handler(content_types=["voice"])
 def reply_media(message):
     random_media = [
+        'CAACAgIAAxkBAAEE3mxik3DNbfJsz7CWT4Iaj7FFxUji-wAC8gEAAvnkbAABFGZP0PSik3UkBA',
+        'CAACAgIAAxkBAAEE3mRik3AcS06Fv0AFlIOH1A66xN0qhgACfQIAAvnkbAABcAABA648YQ08JAQ',
         'CAACAgIAAxkBAAEE3cVik0Ap8f_x294skvy7ZciKlDuDYgAC1wEAAvnkbAAB4w5wG9hf2x0kBA',
         'CAACAgIAAxkBAAEE3ZNikzrWRCP-cQUE39rX0uf_mx0zZQAC8AIAAuPwEwxu6MM3_45aHSQE',
         'CAACAgIAAxkBAAEE3Ytikzq5UWWyBKX2MntRwM_JoasQdAAC7wIAAuPwEwz4T_0I0SlcoCQE',
         'CAACAgIAAxkBAAEE3Y1ikzq--tE7GVNUHuJ2e9LJCaBhcwAC7gIAAuPwEwy9WhQtdjXq0iQE',
-        ''
-
     ]
     bot.send_message(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
 
@@ -96,6 +96,8 @@ def reply_media(message):
     random_media = [
         'CAACAgIAAxkBAAEE3YVikzjVMsAjk5qIlnGuuexQRmBjcAACywIAAuPwEwzCNDIGj1-bgiQE',
         'CAACAgIAAxkBAAEE3ZFikzrJ3-eMnA1vTANhPMn_vYXRsgAC6gIAAuPwEwzU9W4mQkSiPyQE'
+        'CAACAgIAAxkBAAEE3kZik2zzhUB72SIqpFSvSstpTD1eOQAChBYAAicD6UtWHCmJUsvcXyQE',
+        'CAACAgIAAxkBAAEE3khik2z1ZA-1sbe8n3uRujmv2vo2RQAC2RgAAiud6EuyXNu_8FbRLCQE',
     ]
     bot.send_message(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
 
@@ -123,9 +125,7 @@ def reply_books(message):
 @bot.message_handler(regexp='Ленар|ленар|Ленару|ленару|Ленара|ленара')
 def reply_name(message):
     random_lenar = [
-        'Я хуй знает, давай лучше узнаем у настоящего Ленара 🙃',
-        'Не знаю братишка, я же бот 🤖',
-        'Откуда я знаю 🤷, спроси у настоящего Ленара ',
+        'CAACAgIAAxkBAAEE3lpik29rGqz8Uir-MuPE7y3epc2QZwAChQIAAvnkbAABmd-cqFz6D9skBA',
     ]
     bot.send_message(message.chat.id, random.choice(random_lenar), reply_to_message_id=message.message_id)
 
@@ -135,6 +135,7 @@ def reply_name(message):
                             'бугульму|Бугульму|бугульме|Бугульме')
 def reply_jagermeister(message):
     random_jagermeister = [
+        'CAACAgIAAxkBAAEE3kpik2z5eXWRb0ZHAtfB3-F6-fIo2AAChxsAAvaD6UukzGHH1sJdkCQE',
         'CAACAgQAAxkBAAEEkHViZ-i71shmzuKhQt_lybq8OE2xJgACChgAAoB5FQABh6BS2WdOJRMkBA',
         'CAACAgQAAxkBAAEEkHdiZ-jDg2NP5r5oSsOhPtIQjSCo7wACgCIAAoB5FQAB5h5pXsvyTzAkBA',
     ]
@@ -143,8 +144,9 @@ def reply_jagermeister(message):
 
 # Goodbye
 @bot.message_handler(regexp='пока|Пока|счастливо|Счастливо|до свидания|До свидания|гудбай|Гудбай')
-def reply_jagermeister(message):
-    random_jagermeister = [
+def reply_goodbye(message):
+    random_goodbye = [
+        'CAACAgIAAxkBAAEE3kRik2yPu0VCsYNI_NkyiDu7J9N-yQACcxwAAhmc8Uv2ZviUNs8wmyQE',
         'CAACAgIAAxkBAAEE3c1ik0DkH4nBnKmRdNoQEqK0aoKkhgAC8gEAAvnkbAABFGZP0PSik3UkBA',
         'CAACAgIAAxkBAAEE3a1ikz3-5-SU1BcB-N-t3k8H74UPawACwQEAAvnkbAAB-0l-qmLr2hQkBA',
         'CAACAgIAAxkBAAEE3Xlikzdq7FT2WeRZ5a-RDzJVmGUbEwACcxwAAhmc8Uv2ZviUNs8wmyQE',
@@ -160,13 +162,14 @@ def reply_jagermeister(message):
         'CAACAgIAAxkBAAEElJxiam89bpqqtPjrWZuk9CG_mJ1AiQACgwEAAvnkbAABaeDcFvmy5BskBA',
         'CAACAgIAAxkBAAEElKZiam-PAAEfG0qhd8ntvZndLQABezkMAAJqAQAC-eRsAAGINwNAUIS5eCQE',
     ]
-    bot.send_sticker(message.chat.id, random.choice(random_jagermeister), reply_to_message_id=message.message_id)
+    bot.send_sticker(message.chat.id, random.choice(random_goodbye), reply_to_message_id=message.message_id)
 
 
 # Music
 @bot.message_handler(regexp='soundcloud|mixcloud|bandcamp|music.yandex|spotify')
 def reply_music(message):
     random_music = [
+        'CAACAgIAAxkBAAEE3lhik25eU-4OUkQ1PqbMKzT0mUT-sAACjQIAAvnkbAABhvhSvFt-KPwkBA',
         'CAACAgIAAxkBAAEE3dlik0GUUJAg54gcTyoNV6XiNpe0_AACAQIAAvnkbAABgYkUR2jzKikkBA',
         'CAACAgIAAxkBAAEE3d1ik0GaD--dbZjsWRR31iSSIEImyQAC9AEAAvnkbAABNUT2vUtCTSYkBA',
         'CAACAgIAAxkBAAEE3YFikzhnlb6XZoRsuz6seBUnyi4MfQAC1gEAAvnkbAABHxVe-cb2qsMkBA',
@@ -200,6 +203,7 @@ def reply_work(message):
 @bot.message_handler(regexp='конечно|Конечно|разумеется|Разумеется|так и есть|Так и есть|давай|Давай|да')
 def reply_yes(message):
     random_yes = [
+        'CAACAgIAAxkBAAEE3k5ik20AAVneTU4ojKWa4LXzFA_VaksAAnACAAL55GwAAfaA4kSD3N8jJAQ',
         'CAACAgIAAxkBAAEE3d9ik0HjMvemlJM51y2B3Avx3tb8-AACdQIAAvnkbAAB8erfWz9rKMQkBA',
         'CAACAgIAAxkBAAEE3cNik0AlPbIHVzXF86krocOB8rKddAAC2gEAAvnkbAABmnQw-PbzfWIkBA',
         'CAACAgIAAxkBAAEE3cdik0AtKrE5nfsL7viG8t3u7PiaCwAC0wEAAvnkbAABaWEhvNEK5wgkBA',
@@ -270,6 +274,7 @@ def reply_brain(message):
 @bot.message_handler(regexp='знаю|Знаю|знай|Знай|знал|Знал|знает|Знает|знать|Знать')
 def reply_know(message):
     random_know = [
+        'CAACAgIAAxkBAAEE3lxik29uozdiDeasS1wXA0ZTO8otJQAChAIAAvnkbAABR-gwu4XLxqYkBA',
         'CAACAgIAAxkBAAEElJhiam8oLObBx2Vk799D_9qr4lN5QgACRAEAAvnkbAABY8YI7nUWLKwkBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_know), reply_to_message_id=message.message_id)
@@ -301,6 +306,7 @@ def reply_watch(message):
                             'Обманули|кинули|Кинули|кинул|Кинул')
 def reply_fail(message):
     random_fail = [
+        'CAACAgIAAxkBAAEE3kxik2z8148z-iAQF2CXyruWgNVMTgACUhcAAuPw6EuIv1TXwJuN2CQE',
         'CAACAgIAAxkBAAEE3dtik0GXYOVVeXyANQdKnPZ_HuNcBwAC-AEAAvnkbAABxirfsMQfRNIkBA',
         'CAACAgIAAxkBAAEE3ctik0DiXJPCTv1T0KdXUkAjifvaIwAC8wEAAvnkbAABhaKTMhDqj60kBA',
         'CAACAgIAAxkBAAEE3dFik0DqzsOENgJ6RS93WAl-C-jXAAPoAQAC-eRsAAEgaFJYwYUboyQE',
@@ -322,9 +328,13 @@ def reply_fail(message):
 @bot.message_handler(regexp='нет|Нет|не хочу|Не хочу|неа|Неа')
 def reply_no(message):
     random_no = [
+        'CAACAgIAAxkBAAEE3l5ik29xNysfX9qCyfkQ1_QNLEB1FAACiQIAAvnkbAABen6D4HhGcz0kBA',
+        'CAACAgIAAxkBAAEE3mBik290V034mwRRs1z0FwYhcd3YVAACgQIAAvnkbAABn8BL_mlx8eokBA',
+        'CAACAgIAAxkBAAEE3mJik294Dymh6aJYqikyXDx6W56j4gACfwIAAvnkbAABLcA1yOHifyokBA',
+        'CAACAgIAAxkBAAEE3lBik25QVR8bVcHWKrx4mQ9BGPlbFQACbQIAAvnkbAABefDvprRTIC8kBA',
+        'CAACAgIAAxkBAAEE3lRik25X7cFMP29UTcMAAUcs44DzJdQAApkCAAL55GwAAT3hiwAB3ifFFCQE',
         'CAACAgIAAxkBAAEE3cFik0Ai_DIEeB1831yV7PeNj7HDoQAC2wEAAvnkbAABCX-hVktjtVAkBA',
         'CAACAgIAAxkBAAEE3bdikz8zDacAAQlJ0lZHK14dF2LigBcAAs4BAAL55GwAAep5oV8BxDHDJAQ',
-        'CAACAgIAAxkBAAEE3atikz38VLjsySvKIadpwkdCmbgiwwACxAEAAvnkbAABvCkksxco_LwkBA',
         'CAACAgIAAxkBAAEE3bFikz4ErrqI0MidEbph4z3Lz88v2AACvwEAAvnkbAABHngR9XeKmpskBA',
         'CAACAgIAAxkBAAEEj_JiZ-SmicycnWRSK_7-BZ5j72STKAACFgADNIWFDIJkUm5I1EARJAQ',
         'CAACAgIAAxkBAAEEj_RiZ-Sy6miUcHcm6NL3OO7EB_3VuAACiAADNIWFDAABqwuTmC7SfyQE',
@@ -345,6 +355,7 @@ def reply_no(message):
 @bot.message_handler(regexp='когда|Когда|когда?|Когда?|скоро|Скоро')
 def reply_when(message):
     random_when = [
+        'CAACAgIAAxkBAAEE3mhik3AjB23s6-Ojv6_UQK3WB2kipgACdQIAAvniAAB8erfWz9rKMQkBA',
         'CAACAgIAAxkBAAEE3btikz865KIe3VWAfMcZdeMtlkVBNgACzAEAAvnkbAABHBEfcOGSvIMkBA',
         'CAACAgIAAxkBAAEE3bNikz4HESySv1wFn5KwKDTEWrxD1wACvgEAAvnkbAABP6ZugGkwQxokBA',
         'CAACAgIAAxkBAAEEj-ZiZ-OldoHlNXJXWExBkZfgenaSHAACEAADNIWFDGaZ6_mOatb4JAQ',
