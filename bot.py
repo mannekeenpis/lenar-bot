@@ -37,8 +37,8 @@ class TimeSchedule():
         api_key = os.environ.get('API_KEY')
 
         weather_params = {
-            "lat": 10.315699,
-            "lon": 123.885437,
+            "lat": 55.766334,
+            "lon": 52.460639,
             "appid": api_key,
             "exclude": "current,minutely,daily"
         }
