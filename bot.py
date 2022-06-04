@@ -1,5 +1,6 @@
 import time
 import os
+import requests
 import telebot
 import pandas
 import feedparser
@@ -15,14 +16,7 @@ from telebot import types
 TOKEN = os.environ['BOT_API_TOKEN']
 bot = telebot.TeleBot(TOKEN)
 APP_URL = f'https://lenar-technopolis-bot.herokuapp.com/{TOKEN}'
-group_id = os.environ['GROUP_ID']
 server = Flask(__name__)
-
-# TODO
-# # CREATE DB
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRES_DATABASE_URL')
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db = SQLAlchemy(app)
 
 
 # It's going to rain today
@@ -32,7 +26,7 @@ def start_process():
 
 class TimeSchedule():
     def start_schedule():
-        schedule.every().day.at("03:00").do(TimeSchedule.rain_today)
+        schedule.every().day.at("19:55").do(TimeSchedule.rain_today)
 
         while True:
             schedule.run_pending()
@@ -40,13 +34,13 @@ class TimeSchedule():
 
     def rain_today():
         OWM_Endpoint = "https://api.openweathermap.org/data/2.5/onecall"
-        api_key = "8f14ac1ce7426fef035aa2a985c43017"
+        api_key = os.environ.get('API_KEY')
 
         weather_params = {
-            "lat": 55.741040,
-            "lon": 52.400100,
+            "lat": 10.315699,
+            "lon": 123.885437,
             "appid": api_key,
-            "exclude": "current, minutely, daily"
+            "exclude": "current,minutely,daily"
         }
 
         response = requests.get(OWM_Endpoint, params=weather_params)
@@ -62,24 +56,8 @@ class TimeSchedule():
                 will_rain = True
 
         if will_rain:
-            # sent a message from bot to multiple users
-            ids = open('ids.txt', 'r')
-            for id in ids:
-                bot.send_message(chat_id=id, text="It's going to rain today. Remember to bring an ☔")
-
-
-    def send_congratulations():
-        data = pandas.read_csv("birthdays.csv")
-        today = datetime.now()
-        today_tuple = (today.month, today.day)
-        birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
-
-        if today_tuple in birthdays_dict:
-            birthday_person = birthdays_dict[today_tuple]
-            name = birthday_person["name"]
-            bot.send_message(group_id, f"С Днём Рождения {name}! 🎈🎈🎈")
-        else:
-            print('Сегодня нет именинников.')
+            my_id = os.environ.get('MY_ID')
+            bot.send_message(chat_id=my_id, text="It's going to rain today. Remember to bring an ☔")
 
 
 # Voice
