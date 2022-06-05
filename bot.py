@@ -392,13 +392,7 @@ def reply_hello(message):
 def reply_crash(message):
     random_crash = [
         'CAACAgIAAxkBAAEEkHtiZ-jymT1KTeTPKUOEoD-g-wyNmwAC1BEAA8CgSXknAeKPK_QMJAQ',
-        'CAACAgIAAxkBAAEEkH1iZ-kDAVbNfab541gdk04lgyyXWgAC-BAAAuO_SEpmmeh30LPWwSQE',
-        'CAACAgIAAxkBAAEEkH9iZ-kKbznbw2yUwEgkw3sLvvOq-gACRRgAAhSo8EhV35ubVPzFKyQE',
-        'CAACAgIAAxkBAAEEkIFiZ-kTxKyWIhnqYpNrAdu_xl86SAAC3gwAAqv48EiDs9iYsHInKiQE',
-        'CAACAgIAAxkBAAEEkINiZ-kfA1j2egh88Goi8X6s5IMGXwACrQ0AAqyZIEjdinfy_Yf5cCQE',
         'CAACAgIAAxkBAAEEkIViZ-ks1ALZV0FY2mrdUnRJuw7oyAACLQ8AAvNDKEhYkX4ZhSprPyQE',
-        'CAACAgIAAxkBAAEEkIdiZ-k49BTT75-TEFBAUrkPmdFK3QACDQ4AAm0xeUkEtmmVpSCCLSQE',
-        'CAACAgIAAxkBAAEEkIliZ-lAatspfcDnwXrwb_VDeq6A-AACiQsAAgHd8UiI4LCdMX9lBCQE',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_crash), reply_to_message_id=message.message_id)
 
