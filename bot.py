@@ -187,15 +187,11 @@ def reply_work(message):
 @bot.message_handler(regexp='конечно|Конечно|разумеется|Разумеется|так и есть|Так и есть|давай|Давай|да')
 def reply_yes(message):
     random_yes = [
-        'CAACAgIAAxkBAAEE3odik3UpG0D2Ww_Vgtz2B3wQhSePswACmQgAAgk7OxNRVRJoMqOh8SQE',
         'CAACAgIAAxkBAAEE3k5ik20AAVneTU4ojKWa4LXzFA_VaksAAnACAAL55GwAAfaA4kSD3N8jJAQ',
         'CAACAgIAAxkBAAEE3d9ik0HjMvemlJM51y2B3Avx3tb8-AACdQIAAvnkbAAB8erfWz9rKMQkBA',
-        'CAACAgIAAxkBAAEE3clik0AxXii_1x66hDGpk-dYdUa7QgAC0gEAAvnkbAABATzAWw7Er68kBA',
-        'CAACAgIAAxkBAAEE3aVikz1xLmG2JYQp-1qyotYM-YPw3QACsQEAAvnkbAAB92nYTHz9cOUkBA',
         'CAACAgIAAxkBAAEE3aNikz1uJuJe2-mNYkD0O0ih1hMblAACswEAAvnkbAABWBWJ_Xv3Y1EkBA',
         'CAACAgIAAxkBAAEEkFRiZ-gKQ_FxjPSn-7xR92uNUBpYsQACYwADNIWFDOVRjVkiEKL6JAQ',
         'CAACAgIAAxkBAAEEkFZiZ-gOnBiidZ-h8lXSgD5yJggqPwACYgADNIWFDF3nYiwS_GAoJAQ',
-        'CAACAgIAAxkBAAEEk8diajk8Krbu5aFPBdwxSsTZW_TLggACBwAD5HgnCIEmQYo-_P9-JAQ',
         'CAACAgIAAxkBAAEEk_tiajoO4IokPFLB3UPHQgjV_LifRAACNAAD5HgnCPhcQpFrnQ33JAQ',
         'CAACAgIAAxkBAAEEk-Viajm4GCQU4fuOVgtegLLzI7hk7wACHQAD5HgnCCdgBLMLh8bbJAQ',
     ]
@@ -270,7 +266,6 @@ def reply_know(message):
 def reply_cool(message):
     random_cool = [
         'CAACAgIAAxkBAAEElKxiam-ssls1Ig8K55dhHSqJp80n0AACfgEAAvnkbAABwChVPeOaNTgkBA',
-        'CAACAgIAAxkBAAEE3aVikz1xLmG2JYQp-1qyotYM-YPw3QACsQEAAvnkbAAB92nYTHz9cOUkBA',
         'CAACAgIAAxkBAAEE3aNikz1uJuJe2-mNYkD0O0ih1hMblAACswEAAvnkbAABWBWJ_Xv3Y1EkBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_cool), reply_to_message_id=message.message_id)
