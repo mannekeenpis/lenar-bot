@@ -78,10 +78,8 @@ def reply_media(message):
 @bot.message_handler(content_types=["pinned_message", "photo", "video"])
 def reply_media(message):
     random_media = [
-        'CAACAgIAAxkBAAEE3YVikzjVMsAjk5qIlnGuuexQRmBjcAACywIAAuPwEwzCNDIGj1-bgiQE',
-        'CAACAgIAAxkBAAEE3ZFikzrJ3-eMnA1vTANhPMn_vYXRsgAC6gIAAuPwEwzU9W4mQkSiPyQE'
+        'CAACAgIAAxkBAAEE3ZFikzrJ3-eMnA1vTANhPMn_vYXRsgAC6gIAAuPwEwzU9W4mQkSiPyQE',
         'CAACAgIAAxkBAAEE3kZik2zzhUB72SIqpFSvSstpTD1eOQAChBYAAicD6UtWHCmJUsvcXyQE',
-        'CAACAgIAAxkBAAEE3khik2z1ZA-1sbe8n3uRujmv2vo2RQAC2RgAAiud6EuyXNu_8FbRLCQE',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_media), reply_to_message_id=message.message_id)
 
@@ -192,8 +190,6 @@ def reply_yes(message):
         'CAACAgIAAxkBAAEE3odik3UpG0D2Ww_Vgtz2B3wQhSePswACmQgAAgk7OxNRVRJoMqOh8SQE',
         'CAACAgIAAxkBAAEE3k5ik20AAVneTU4ojKWa4LXzFA_VaksAAnACAAL55GwAAfaA4kSD3N8jJAQ',
         'CAACAgIAAxkBAAEE3d9ik0HjMvemlJM51y2B3Avx3tb8-AACdQIAAvnkbAAB8erfWz9rKMQkBA',
-        'CAACAgIAAxkBAAEE3cNik0AlPbIHVzXF86krocOB8rKddAAC2gEAAvnkbAABmnQw-PbzfWIkBA',
-        'CAACAgIAAxkBAAEE3cdik0AtKrE5nfsL7viG8t3u7PiaCwAC0wEAAvnkbAABaWEhvNEK5wgkBA',
         'CAACAgIAAxkBAAEE3clik0AxXii_1x66hDGpk-dYdUa7QgAC0gEAAvnkbAABATzAWw7Er68kBA',
         'CAACAgIAAxkBAAEE3aVikz1xLmG2JYQp-1qyotYM-YPw3QACsQEAAvnkbAAB92nYTHz9cOUkBA',
         'CAACAgIAAxkBAAEE3aNikz1uJuJe2-mNYkD0O0ih1hMblAACswEAAvnkbAABWBWJ_Xv3Y1EkBA',
@@ -202,7 +198,6 @@ def reply_yes(message):
         'CAACAgIAAxkBAAEEk8diajk8Krbu5aFPBdwxSsTZW_TLggACBwAD5HgnCIEmQYo-_P9-JAQ',
         'CAACAgIAAxkBAAEEk_tiajoO4IokPFLB3UPHQgjV_LifRAACNAAD5HgnCPhcQpFrnQ33JAQ',
         'CAACAgIAAxkBAAEEk-Viajm4GCQU4fuOVgtegLLzI7hk7wACHQAD5HgnCCdgBLMLh8bbJAQ',
-        'CAACAgIAAxkBAAEElIpiam6ow4744EYWtxW7AUFfNcOoQQACDAEAAvnkbAABXarqC6W7iY4kBA',
     ]
     bot.send_sticker(message.chat.id, random.choice(random_yes), reply_to_message_id=message.message_id)
 
